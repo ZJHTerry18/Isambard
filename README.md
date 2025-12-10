@@ -70,5 +70,11 @@ Run ```python setup.py bdist_wheel```+```pip install dists/xxx.whl```
 
 Go to another directory and try ```python -c "import spconv.pytorch"``` to see if the installation is successful.
 
+### Installation Choices for Some Packages
+```
+CGAL: conda install conda-forge::cgal # pip won't work
+
+```
+
 ### Other Tips
 - Sometimes building from source incur errors. Try to load the gcc-native/13.2 and modify env variables to get around.
