@@ -41,5 +41,34 @@ Install pytorch3d from git source
 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable" --no-build-isolation # if not adding --no-build-isolation, will incur 'No module named torch' error
 ```
 
+### SpConv
+Ref: [https://github.com/traveller59/spconv/tree/v2.3.6?tab=readme-ov-file](https://github.com/traveller59/spconv/tree/v2.3.6?tab=readme-ov-file)
+
+**Do all the installations in GPU machine!** ```srun --gpus=1 --pty bash```
+
+Install cumm-cu126 v0.7.3 from source: [cumm](https://github.com/FindDefinition/cumm/tree/v0.7.3)
+```shell
+export CUMM_CUDA_VERSION="12.6"
+export CUMM_CUDA_ARCH_LIST="9.0"
+export CUMM_DISABLE_JIT="1"
+```
+
+Modify the cuda path in ```cumm/common.py``` from ```/usr/local/cuda``` to the one in our machine (view by ```echo $PATH```).
+
+Run ```python setup.py bdist_wheel```+```pip install dists/xxx.whl```
+
+Install spconv-cu126 v2.3.6 from source: [spconv](https://github.com/traveller59/spconv/tree/v2.3.6?tab=readme-ov-file#install)
+```shell
+export CUMM_CUDA_VERSION="12.6"
+export CUMM_CUDA_ARCH_LIST="9.0"
+export SPCONV_DISABLE_JIT="1"
+```
+
+Remove the cumm dependence in ```pyproject.toml```, and in ```setup.py```.
+
+Run ```python setup.py bdist_wheel```+```pip install dists/xxx.whl```
+
+Go to another directory and try ```python -c "import spconv.pytorch"``` to see if the installation is successful.
+
 ### Other Tips
 - Sometimes building from source incur errors. Try to load the gcc-native/13.2 and modify env variables to get around.
