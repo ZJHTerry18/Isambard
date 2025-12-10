@@ -41,4 +41,5 @@ Install pytorch3d from git source
 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable" --no-build-isolation # if not adding --no-build-isolation, will incur 'No module named torch' error
 ```
 
-### PyTorch-Geometric (PyG)
+### Other Tips
+- Sometimes building from source incur errors. Try to load the gcc-native/13.2 and modify env variables to get around.
