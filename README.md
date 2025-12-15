@@ -10,8 +10,16 @@ Some tips on how to setup environements on Isambard-AI
 This is the highest version that is compatible with PyTorch3D
 ```shell
 pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu124
-pip install torchvision==0.19.1 torchaudio==2.4.1 # cannot install if specifying cu124 whl
+pip install torchvision==0.19.1 torchaudio==2.4.1 # cpu version only
 ```
+- If you want torchvision for CUDA, you need to build from source.
+Do it in a GPU node, and load gcc 13, change c++ environment variables accordingly.
+```shell
+git clone --branch release/0.19 https://github.com/pytorch/vision.git
+cd vision
+TORCH_CUDA_ARCH_LIST=9.0 pip install -e . -v --no-build-isolation
+```
+
 - Newer
 ```shell
 # Torch 2.6.0:
