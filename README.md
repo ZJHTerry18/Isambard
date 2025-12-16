@@ -32,7 +32,7 @@ Install ioPath:
 pip install iopath
 ```
 
-Download and export NVIDIA-CUB:
+**Only for CUDA<11.7!!** Download and export NVIDIA-CUB:
 ```shell
 curl -LO https://github.com/NVIDIA/cub/archive/1.10.0.tar.gz
 tar xzf 1.10.0.tar.gz
@@ -52,7 +52,9 @@ which g++ -> export CXX=$THAT_PATH
 
 Install pytorch3d from git source
 ```shell
-pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable" --no-build-isolation # if not adding --no-build-isolation, will incur 'No module named torch' error
+# FORCE_CUDA=1 is essential for installing GPU version
+TORCH_CUDA_ARCH_LIST=9.0 FORCE_CUDA=1 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable" --no-build-isolation
+# if not adding --no-build-isolation, will incur 'No module named torch' error
 ```
 
 ### SpConv
