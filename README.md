@@ -93,4 +93,35 @@ CGAL: conda install conda-forge::cgal # pip won't work
 ```
 
 ### Other Tips
-- Sometimes building from source incur errors. Try to load the gcc-native/13.2 and modify env variables to get around.
+- Sometimes building from source incurs errors. Try to load the gcc-native/13.2 and modify env variables to get around.
+
+## Logs on Installing Specific Envs
+### SAM3D Objects
+git repo: [sam3d](https://github.com/facebookresearch/sam-3d-objects/blob/main/doc/setup.md)
+
+Python: 3.11
+1. install torch 2.4.1
+2. install ```requirements.txt```:
+   ```
+   ## AutoGPTQ
+   git clone https://github.com/PanQiWei/AutoGPTQ.git && cd AutoGPTQ
+   # make sure gcc 13.2 is loaded
+   TORCH_CUDA_ARCH_LIST=9.0 pip install -vvv --no-build-isolation -e .
+   PYPI_RELEASE=true pip install auto-gptq
+   pip install transformers==4.50.3 # too new version not compatible with autogptq
+
+   ## xformers
+   TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.27 --no-build-isolation # >=0.0.28 induces error
+   ```
+4. run ```pip install xx --no-build-isolations``` for every package in ```requirements.dev.txt```
+5. [install pytorch3d](#pytorch3d)
+6. install flash-attention: ```pip install psutil; pip install flash_attn==2.8.3 --no-build-isolation```
+7. run ```pip install xx --no-build-isolations``` for every package in ```requirements.inference.txt```. Specifically for ```gsplat```, run
+   ```
+   TORCH_CUDA_ARCH_LIST=9.0 pip install gsplat@git+https://github.com/nerfstudio-project/gsplat.git@2323de5905d5e90e035f792fe65bad0fedd413e7 --no-build-isolation
+   ```
+8. install huggingface_hub for downloading checkpoints: ```pip install 'huggingface-hub[cli]<1.0'```
+9. Other packages:
+   ```
+   pip install hydra-core
+   ```
