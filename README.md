@@ -110,8 +110,13 @@ Python: 3.11
    PYPI_RELEASE=true pip install auto-gptq
    pip install transformers==4.50.3 # too new version not compatible with autogptq
 
-   ## xformers
-   TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.27 --no-build-isolation # >=0.0.28 induces error
+   ## xatlas: from source
+   (I forgot the scripts)
+   
+   ## kaolin: from source
+   python setup.py install (develop will fail. Ignore the 'No usd-core' warning)
+
+   ## torchvision & torchaudio: from source
    ```
 4. run ```pip install xx --no-build-isolations``` for every package in ```requirements.dev.txt```
 5. [install pytorch3d](#pytorch3d)
