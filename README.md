@@ -1,6 +1,12 @@
 # Isambard
 Some tips on how to setup environements on Isambard-AI
 
+## Moving Between Projects
+### Conda envs
+```shell
+conda create -n new_env --clone /path_to_conda/envs/src_env
+```
+
 ## Tips
 - KEEP UPDATING...
 
