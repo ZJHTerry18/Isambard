@@ -6,6 +6,8 @@ Some tips on how to setup environements on Isambard-AI
 ```shell
 conda create -n new_env --clone /path_to_conda/envs/src_env
 ```
+might need to re-install pip afterwards: ```python -m pip install --force-reinstall pip```.
+Also some packages installed from source might need re-installation.
 
 ## Tips
 - KEEP UPDATING...
