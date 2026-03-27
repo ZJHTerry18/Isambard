@@ -159,4 +159,13 @@ Python 3.10:
    export CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
    pip install .
    ```
-2. 
+2. Install other packages: torch 2.4.1, requests, rerun-sdk==0.16.0, matplotlib
+3. Install vrs:
+   ```shell
+   conda install -c conda-forge libjpeg-turbo=3 vrs --update-all
+   ```
+4. Install 'Optional' packages:
+   ```shell
+   pip install 'git+https://github.com/vchoutas/smplx.git'
+   pip install 'git+https://github.com/mattloper/chumpy' --no-build-isolation
+   ```
