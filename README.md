@@ -138,3 +138,25 @@ Python: 3.11
    ```
    pip install hydra-core
    ```
+
+### HOT3D
+git repo: [hot3d](https://github.com/facebookresearch/hot3d)
+Python 3.10:
+0. Load gcc 13.2.0. Load GPU node.
+1. Install projectaria_tools==1.5.1 from [source](https://github.com/facebookresearch/projectaria_tools):
+   ```shell
+   git clone https://github.com/facebookresearch/projectaria_tools.git -b 1.5.1
+   
+   # Install necessary dependencies
+   conda install -c conda-forge cmake eigen boost glog fmt lz4 zstd xxhash libpng jpeg libjpeg-turbo glew
+   
+   # Build C++ dependencies (I'm not sure whether this step is needed, but I did)
+   mkdir -p build && cd build
+   cmake ../ -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+   make -j2
+
+   # Build Python package
+   export CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+   pip install .
+   ```
+2. 
