@@ -141,14 +141,16 @@ Python: 3.11
 
 ### HOT3D
 git repo: [hot3d](https://github.com/facebookresearch/hot3d)
-Python 3.10:
+
+Python 3.12
+
 0. Load gcc 13.2.0. Load GPU node.
 1. Install projectaria_tools==1.5.1 from [source](https://github.com/facebookresearch/projectaria_tools):
    ```shell
-   git clone https://github.com/facebookresearch/projectaria_tools.git -b 1.5.1
+   git clone https://github.com/facebookresearch/projectaria_tools.git -b 1.6.0
    
    # Install necessary dependencies
-   conda install -c conda-forge cmake eigen boost glog fmt lz4 zstd xxhash libpng jpeg libjpeg-turbo glew
+   conda install -c conda-forge cmake eigen boost glog fmt==10.2.1 lz4 zstd xxhash libpng libjpeg-turbo=3 glew # version must follow this
    
    # Build C++ dependencies (I'm not sure whether this step is needed, but I did)
    mkdir -p build && cd build
@@ -159,11 +161,19 @@ Python 3.10:
    export CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
    pip install .
    ```
-2. Install other packages: torch 2.4.1, requests, rerun-sdk==0.16.0, matplotlib
-3. Install vrs:
-   ```shell
-   conda install -c conda-forge libjpeg-turbo=3 vrs --update-all
+2. Install vrs: conda source causes unsolvable version conflict. So we install from source.
    ```
+   git clone org-16943930@github.com:facebookresearch/pyvrs.git -b v1.2.1
+
+   # Install necessary dependencies
+   conda install -c conda-forge ninja
+
+   # Build
+   find csrc -name "*.h" -o -name "*.hpp" -o -name "*.cpp" | xargs sed -i '1i #include <cstdint>\n#include <cstddef>'
+   export CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_PARALLEL_LEVEL=2"
+   pip install .
+   ```
+3. Install other packages: torch 2.4.1, matplotlib
 4. Install 'Optional' packages:
    ```shell
    pip install 'git+https://github.com/vchoutas/smplx.git'
