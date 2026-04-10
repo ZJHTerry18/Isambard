@@ -179,3 +179,9 @@ Python 3.12
    pip install 'git+https://github.com/vchoutas/smplx.git'
    pip install 'git+https://github.com/mattloper/chumpy' --no-build-isolation
    ```
+### Video-Depth-Anything
+git repo: [video-depth-anything](https://github.com/DepthAnything/Video-Depth-Anything)
+
+Python 3.10
+
+1. Install torch 2.4.1 and torchvision 0.19.1.
