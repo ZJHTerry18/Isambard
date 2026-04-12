@@ -12,6 +12,9 @@ Also some packages installed from source might need re-installation.
 ## Tips
 - KEEP UPDATING...
 
+### Python
+- It seems for Python 3.10, <=3.10.14 is safer. Otherwise you may encounter issues when installing some older packages (like torchvision==0.19.1) from source.
+
 ### PyTorch
 - I cannot find how to install CUDA-Supported PyTorch for 2.1.0 - 2.3.1.
 - torch 2.4.1
@@ -185,3 +188,5 @@ git repo: [video-depth-anything](https://github.com/DepthAnything/Video-Depth-An
 Python 3.10
 
 1. Install torch 2.4.1 and torchvision 0.19.1.
+2. Install ```pip install -r requirements.txt```.
+3. Install xformers: ```TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.23 --no-build-isolation```
