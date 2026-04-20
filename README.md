@@ -182,6 +182,8 @@ Python 3.12
    pip install 'git+https://github.com/vchoutas/smplx.git'
    pip install 'git+https://github.com/mattloper/chumpy' --no-build-isolation
    ```
+5. If want to run myself code on scene point cloud, need to [install pytorch3d](#pytorch3d) (though not required in the original env).
+   
 ### Video-Depth-Anything
 git repo: [video-depth-anything](https://github.com/DepthAnything/Video-Depth-Anything)
 
