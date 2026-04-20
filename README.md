@@ -57,8 +57,8 @@ module av gcc # to check what versions are available
 module load gcc-native/13.2
 
 # set environment variables
-which gcc -> export CC=$THAT_PATH
-which g++ -> export CXX=$THAT_PATH
+export CC=$(which gcc)
+export CXX=$(which g++)
 ```
 
 Install pytorch3d from git source
