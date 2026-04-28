@@ -192,3 +192,11 @@ Python 3.10
 1. Install torch 2.4.1 and torchvision 0.19.1.
 2. Install ```pip install -r requirements.txt```.
 3. Install xformers: ```TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.23 --no-build-isolation```
+
+### SAM2
+git repo: [sam2](https://github.com/facebookresearch/sam2)
+
+Python 3.10
+
+1. Install torch 2.6.0 and torchvision 0.21.0
+2. 
