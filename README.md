@@ -200,3 +200,24 @@ Python 3.10
 
 1. Install torch 2.6.0 and torchvision 0.21.0
 2. 
+
+### PAM
+git repo: [PAM](https://github.com/GasaiYU/PAM)
+
+Python 3.10
+
+1. Install torch 2.6.0, torchvision 0.21.0. And then, install torch assisted packages:
+```shell
+TORCH_CUDA_ARCH_LIST=9.0 pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.6.0+cu126.html --no-build-isolation
+```
+
+2. Install detectron2:
+```shell
+TORCH_CUDA_ARCH_LIST=9.0 pip install 'git+https://github.com/facebookresearch/detectron2.git' --no-build-isolation
+```
+
+3. Xformers and deepspeed:
+```shell
+TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.29.post1 --no-build-isolation
+```
+
