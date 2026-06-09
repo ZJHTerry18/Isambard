@@ -223,6 +223,7 @@ TORCH_CUDA_ARCH_LIST=9.0 pip install 'git+https://github.com/facebookresearch/de
 3. Xformers and deepspeed:
 ```shell
 TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.29.post1 --no-build-isolation
+pip install deepspeed
 ```
 
 4. Other packages:
