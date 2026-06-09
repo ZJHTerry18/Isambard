@@ -15,6 +15,10 @@ Also some packages installed from source might need re-installation.
 ### Python
 - It seems for Python 3.10, <=3.10.14 is safer. Otherwise you may encounter issues when installing some older packages (like torchvision==0.19.1) from source.
 
+### Setuptools
+If encountering ```ModuleNotFoundError: No module named 'pkg_resources'```, it's probably because you have ```setuptools>=82.0.0```.
+Downgrade it to <82.0.0: such as ```pip install setuptools==81.0.0```.
+
 ### PyTorch
 - I cannot find how to install CUDA-Supported PyTorch for 2.1.0 - 2.3.1.
 - torch 2.4.1
