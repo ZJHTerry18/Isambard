@@ -225,3 +225,10 @@ TORCH_CUDA_ARCH_LIST=9.0 pip install 'git+https://github.com/facebookresearch/de
 TORCH_CUDA_ARCH_LIST=9.0 pip install xformers==0.0.29.post1 --no-build-isolation
 ```
 
+4. Other packages:
+```shell
+pip install -r requirements_all.txt --no-build-isolation
+
+# extra packages that are commented in the requirements, but needed
+pip install "git+https://github.com/hassony2/manopth" --no-build-isolation
+```
