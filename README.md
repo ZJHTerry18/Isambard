@@ -232,4 +232,10 @@ pip install -r requirements_all.txt --no-build-isolation
 
 # extra packages that are commented in the requirements, but needed
 pip install "git+https://github.com/hassony2/manopth" --no-build-isolation
+
+# decord (might not need after modifying video loader code)
+conda install -c conda-forge decord
+
+# triton (3.1.0 might be good, newer causes incompatible with torch2.6.0)
+conda install -c conda-forge triton==3.1.0
 ```
