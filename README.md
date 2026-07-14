@@ -247,3 +247,4 @@ Python 3.12
 
 1. Install torch==2.10.0+cu126 (with torchvision, torchaudio)
 2. Run ```pip install -e ".[dev]"```
+3. Downgrade ```setuptools==81.0.0```. Install ```psutil, einops```
