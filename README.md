@@ -239,3 +239,11 @@ conda install -c conda-forge decord
 # triton (3.1.0 might be good, newer causes incompatible with torch2.6.0)
 conda install -c conda-forge triton==3.1.0
 ```
+
+### SAM3
+git repo: [sam3](https://github.com/facebookresearch/sam3)
+
+Python 3.12
+
+1. Install torch==2.10.0+cu126 (with torchvision, torchaudio)
+2. Run ```pip install -e ".[dev]"```
